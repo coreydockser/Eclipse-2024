@@ -1,0 +1,1 @@
+Map for Vermont Public's 2024 total solar eclipse Coverage.
