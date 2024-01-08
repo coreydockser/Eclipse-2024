@@ -172,9 +172,9 @@
 
             const purple = "#af2dcb"
             const light_purple = "#dcacf3"
-            const umbra_lo = await d3.json("umbra_lo.json")
-            const duration = await d3.json("duration.json")
-            const towns = await d3.json("vt_towns_geo.json")
+            const umbra_lo = await d3.json("data/umbra_lo.json")
+            const duration = await d3.json("data/duration.json")
+            const towns = await d3.json("data/vt_towns_geo.json")
             const towns_features = towns.features
             const duration_features = duration.features
             const umbra_features = umbra_lo.features
@@ -412,7 +412,7 @@
 
             logo_holder.onAdd = function(map) {
                 var logo = L.DomUtil.create("div", "logo")
-                logo.innerHTML = `<a href=https://vermontpublic.org><img src="vt_logo_light.png" id="logo_img" height="100px"></a>`
+                logo.innerHTML = `<a href=https://vermontpublic.org><img src="img/vt_logo_light.png" id="logo_img" height="100px"></a>`
                 return logo
             }
 
