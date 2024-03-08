@@ -281,7 +281,7 @@
             var markers_layer = L.layerGroup().addTo(map)
             umbra_layer.on('click', function (e) {
                 markers_layer.clearLayers()
-                console.log(e.latlng)
+             
                 var times = []
                 leafletPip.pointInLayer(e.latlng, umbra_layer).map(function (s) { times.push(s.feature.properties) })
                 var times_formatted = [convertTime(times[0]["UTCSec"]), convertTime(times[times.length - 1]["UTCSec"]), secondsToMinutes(times[times.length - 1]["UTCSec"] - times[0]["UTCSec"])]
@@ -375,7 +375,7 @@
                     updateUmbra(umbra_features.filter(d => d.properties["UTCSec"] == d3slider.property("value")))
 
                     timesec = slidervalue
-                    console.log(slidervalue)
+                    
                 }
             }, 250)
 
