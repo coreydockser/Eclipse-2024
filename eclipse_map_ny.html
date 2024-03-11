@@ -192,7 +192,7 @@
             function convertTime(seconds) {
                 // 3.6m is 6 hours in milleseconds, which is the offset during daylight savings time
 
-                eclipse_time = new Date(Date.UTC(seconds * 1000 + 3600000))
+                eclipse_time = new Date(seconds * 1000 + 3600000)
                 const hours = eclipse_time.getHours() % 12
                 var minutes = eclipse_time.getMinutes()
                 if (minutes < 10) {
