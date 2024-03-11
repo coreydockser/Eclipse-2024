@@ -180,6 +180,7 @@
             const towns_features = towns.features
             const duration_features = duration.features
             const umbra_features = umbra_lo.features
+            console.log(umbra_lo)
         
             function titleCase(str) {
                 str = str.toLowerCase().split(' ');
@@ -190,22 +191,13 @@
             }
 
             function convertTime(seconds) {
-                // 3.6m is 6 hours in milleseconds, which is the offset during daylight savings time
-
-                eclipse_time = new Date(seconds * 1000 + 3600000)
-                const hours = eclipse_time.getHours() % 12
-                var minutes = eclipse_time.getMinutes()
-                if (minutes < 10) {
-                    minutes = "" + 0 + minutes
-                }
-                var seconds = eclipse_time.getSeconds()
-                if (seconds < 10) {
-                    seconds = "" + 0 + seconds
-                }
-
-                time = hours + ":" + minutes + ":" + seconds + " PM"
+                // seconds needs to be in milliseconds, and 1712534400000 is the number of milliseconds to reach April 8, 2024 from the linux epoch
+                eclipse_time = new Date(seconds * 1000 + 1712534400000)
+                time = eclipse_time.toLocaleTimeString('en-US', {timeZone: "America/New_York"})
                 return time;
             }
+
+        
 
             towns_features.forEach((d) => d.properties.name = titleCase(d.properties.TOWNNAME))
             
