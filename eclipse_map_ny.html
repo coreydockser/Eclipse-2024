@@ -192,7 +192,7 @@
             function convertTime(seconds) {
                 // 3.6m is 6 hours in milleseconds, which is the offset during daylight savings time
 
-                eclipse_time = new Date(seconds * 1000 + 3600000)
+                eclipse_time = new Date(Date.UTC(seconds * 1000 + 3600000))
                 const hours = eclipse_time.getHours() % 12
                 var minutes = eclipse_time.getMinutes()
                 if (minutes < 10) {
@@ -232,7 +232,7 @@
             }).setView(
                 [44.21174128124646, -75.02014160156251
                 ],
-                8
+                7
             );
             L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
                 attribution: `Data Source: <a href="https://svs.gsfc.nasa.gov/5073">NASA</a> | &copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> | <i>Corey Dockser / Vermont Public </i>`,
